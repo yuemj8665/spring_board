@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mjboard.board.board.BoardMapper">
+    <insert id="boardInsert" parameterType="com.example.mjboard.board.board.BoardResultVO">
+        insert into board_pro(
+            bno,
+            subject,
+            content,
+            writer,
+            reg_date,
+            hit
+        )
+            value (
+            #{bno},
+            #{subject},
+            #{content},
+            #{writer},
+            now(),
+            0)ON DUPLICATE KEY UPDATE
+                                   bno = #{bno},
+                                   subject = #{subject},
+                                   content = #{content},
+                                   writer = #{writer},
+                                   reg_date = now(),
+                                   hit = #{hit}
+    </insert>
+    <select id="boardList" resultType="com.example.mjboard.board.board.BoardResultVO">
+        select * from board_pro
+    </select>
+    <delete id="boardDelete" parameterType="com.example.mjboard.board.board.BoardResultVO">
+        delete from board_pro where bno = #{bno}
+    </delete>
+</mapper>
