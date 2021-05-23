@@ -1,4 +1,4 @@
-## 스프링 배치 연습하기
+## 스프링 게시판 만들기
 ==
 ### 1. 참고주소
 1. [**Spring 게시판 만들기**](https://walkerlab.tistory.com/3?category=840779)
